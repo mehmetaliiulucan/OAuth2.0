@@ -1,0 +1,43 @@
+﻿@model LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <form action="/oauth/authorize" method="post">
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td>
+                        <input type="text" name="username" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="client_id" value="@Model.ClientId]" />
+                        <input type="hidden" name="redirect_uri" value="@Model.RedirectUri" />
+                        <input type="hidden" name="response_type" value="@Model.ResponseType" />
+                        <input type="hidden" name="state" value="@Model.State" />
+
+                        <button type="submit">Log In</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
